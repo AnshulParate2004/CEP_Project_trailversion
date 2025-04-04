@@ -1,0 +1,136 @@
+<html>
+	<head>
+		<title>Fun to Read</title>
+		<meta charset="UTF-8">
+		<meta name="authoring-tool" content="Adobe_Animate_CC">
+		<link rel="stylesheet" href="../styles/stylesheet.css">
+		<script>
+			var indexLinkHelp = "http://help.starfall.com";
+		</script>
+		<script src="../scripts/jquery-3.2.1.min.js"></script>
+		<script src="../scripts/createjs-2015.11.26.min.js"></script>
+		<script src="../scripts/index-optionalbar.js"></script>
+		<script src="../scripts/index-logos.js"></script>
+		<script src="../scripts/index-backbutton.js"></script>
+		<script src="../scripts/resize.js"></script>
+		<script src="../scripts/backbutton-fix.js"></script>
+		<script src="../scripts/index.js"></script>
+		<script src="../scripts/index-controller.js"></script>
+		<style>
+			body{background-color:#FDC650;}
+			#rotate_icon_container{
+				text-align: center;
+				background-color: #FDC650;
+				position: relative;
+				display: none;
+			}
+			#rotate_icon{position: absolute;}
+			#navigation{
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 179px;
+			}
+			#back{width: 100%;}
+			body > img[style="visibility: hidden;"]{ display: none; }
+		</style>
+		<script>
+			// Button Variables
+			var ftrMe = "/h/me/?sn=fun-to-read";
+			var ftrArt = "/h/ftr-art/?sn=fun-to-read";
+			var ftrMagic = "/h/ftr-magic/?sn=fun-to-read";
+			var ftrMusic = "/h/ftr-music/?sn=fun-to-read";
+			var ftrPoetry = "/h/ftr-poetry/?sn=fun-to-read";
+			var ftrTwister = "/h/ftr-twisters/?sn=fun-to-read";
+			var ftrRiddles = "/h/ftr-birdriddles/?sn=fun-to-read";
+			// Vikram Variables
+			var OptionalBarOn = 0;
+			var stateStandardsOn = 0;
+			var stateStandardsColor = "#197BF6";
+			var stateStandardsLink = indexLinkHelp;
+			var starfallLogoPath = "../_images/starfall-logo.png";
+			// Canvas Generation
+			var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+			var OptionalBarHeight = 40;
+			var stageWidth = 1362, stageHeight = 768, maxStageWidth = 1730, maxStageHeight = 768;
+			function init() {
+				starfall.BackButton.init(stageWidth);
+				canvas = document.getElementById("canvas");
+				anim_container = document.getElementById("animation_container");
+				dom_overlay_container = document.getElementById("dom_overlay_container");
+				var comp=AdobeAn.getComposition("C5C77ABD4006A74B9C9F60BEEAC74E03");
+				var lib=comp.getLibrary();
+				handleComplete(null, comp);
+			}
+			function handleFileLoad(evt, comp) {
+				var images=comp.getImages();
+				if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }
+			}
+			function handleComplete(evt,comp) {
+				toggleLoader(false);
+				var lib=comp.getLibrary();
+				var ss=comp.getSpriteSheet();
+				exportRoot = new lib.FTR20180621();
+				stage = new lib.Stage(canvas);
+				starfall.Resize.setup(stage,stageWidth,stageHeight,maxStageWidth,maxStageHeight);
+				var controller = new starfall.FtrController(exportRoot);
+				stage.addChild(exportRoot);
+				if(OptionalBarOn){
+					addOptionalbar();	
+				}
+				addLogos();
+				fnStartAnimation = function() {
+					createjs.Ticker.setFPS(lib.properties.fps);
+					// createjs.Ticker.addEventListener("tick", stage);
+				}
+				AdobeAn.compositionLoaded(lib.properties.id);
+				fnStartAnimation();
+			}
+			function playSound(id, loop) {
+				return createjs.Sound.play(id, createjs.Sound.INTERRUPT_EARLY, 0, 0, loop);
+			}
+			function toggleLoader(show){
+				if(show){
+					dom_overlay_container.style.display = "block";
+					canvas.style.display = "none";
+				}
+				else{
+					dom_overlay_container.style.display = "none";
+					canvas.style.display = "block";
+				}
+			}
+			function addOptionalbar(){
+				var optionalBar = new starfall.OptionalBar(stageWidth);
+				stage.addChild(optionalBar);
+				starfall.Resize.events.addEventListener("resize",function(){
+					optionalBar.resize();
+				});
+				exportRoot.y = OptionalBarHeight;
+				var remainingHeight = stageHeight-OptionalBarHeight;
+				exportRoot.scaleX = exportRoot.scaleY = remainingHeight/stageHeight;
+				exportRoot.x = (stageWidth - (stageWidth*exportRoot.scaleX))/2;
+			}
+			function addLogos(){
+				var logo = new starfall.IndexLogos(exportRoot,stageWidth,stageHeight,stateStandardsColor,stateStandardsLink,stateStandardsOn,starfallLogoPath);
+				exportRoot.addChild(logo);
+			}
+		</script>
+	</head>
+	<body onload="init();" style="margin:0px;">
+		<div id="animation_container">
+			<canvas id="canvas" width="1024" height="768" style="position: absolute; display: block; background-color:#FDC650; -webkit-tap-highlight-color: transparent;"></canvas>
+			<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; position: absolute; left: 0px; top: 0px; display: block; width:100%; height:100%">
+				<div id="_preload_div_" style="background:#FDC650; display: inline-block; height:100%; width: 100%; vertical-align:middle;position:absolute;left:0px;top:0px;text-align: center;">
+					<span style="display: inline-block; height: 100%; vertical-align: middle;"></span>
+					<img src="../images/web-system-wide-loading-stars-GIF.gif" style="vertical-align: middle; max-width: 100%; max-height: 100%">
+				</div>
+			</div>
+		</div>
+		<div id="rotate_icon_container">
+			<img id="rotate_icon" src="../images/rotate-phone-icon-white.png">
+		</div>
+		<div id="navigation">
+			<a href="../html/index.php.html"><img src="../images/green-arrow.png" id="back"></a>
+		</div>
+	</body>
+</html>

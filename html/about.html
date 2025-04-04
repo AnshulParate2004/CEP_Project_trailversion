@@ -1,0 +1,1165 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Starfall Parent-Teacher Center - About Us</title>
+    <meta name="description" content="A detailed overview of Starfall Education including history, timeline, staff, and more.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link href="../styles/bootstrap.min.css" rel="stylesheet">
+    <link href="../styles/styles.css" rel="stylesheet">
+      <style>
+    .timeline-container {
+      width: 70%;
+      margin: auto;
+      height: 80%;
+      max-height: 500px;
+      overflow: hidden;
+      border-radius: 6px;
+      border: 3px solid #006EDB;
+      border-top: 0;
+      background-color: #fff;
+      padding-bottom: 87px;
+    }
+
+    .timeline-scroll {
+      overflow-y: scroll;
+      height: 120%;
+      max-height: 500px;
+      padding-bottom: 80px;
+    }
+
+    .timeline-header {
+      text-align: center;
+      background-color: #006EDB;
+      color: #ffffff;
+      font-size: 1.4em;
+      padding: 3px 0px;
+    }
+
+    .staff img {
+      display: inline-block;
+      border-radius: 60px;
+      border: 1px solid gray;
+      box-shadow: 0 0 2px #888;
+      width: 65px;
+    }
+
+    .staff.row {
+      margin-bottom: 10px;
+    }
+
+    .main .staff .pr-2 {
+      padding-right: 15px !important;
+    }
+
+
+    .main-title-subhead, .wide .intro, h1 {
+      text-align: center;
+    }
+
+    .main-container.about-us .history img {
+      float: right;
+      max-width: 180px;
+      margin: 0 26px 15px 20px;
+    }
+
+
+    .main-title-subhead {
+      margin: -10px 10px 25px;
+      font-family: starfall_blockregular_bold, sans-serif;
+      color: #0d3557;
+      font-size: 22px;
+      line-height: 28px;
+    }
+
+
+    .main-container.about-us .teams h2 {
+      margin: 0;
+      font-size: 20px;
+      color: #004988 !important;
+    }
+
+    .main-container .board a {
+      /*margin-bottom: -20px;*/
+      text-decoration: none;
+      color: #428bca;
+    }
+
+    .main-container.about-us a {
+      color: #00559e;
+      text-decoration: none;
+    }
+
+    .main-container.about-us a:hover {
+      text-decoration: underline;
+    }
+
+    .main-container .board a span {
+      float: right;
+      margin-top: 14px;
+      font-size: 12px;
+      color: #52003e;
+    }
+
+    .main-container .board h2 {
+      /*line-height: 16px;*/
+      /*margin: 24px 0 -8px;*/
+      font-size: 20px;
+    }
+
+    .main-container h2 {
+      color: #2a4865 !important;
+    }
+
+
+    .acknowledgments p, .board p {
+
+      float: left;
+      position: relative;
+    }
+
+    .acknowledgments .collapse, .acknowledgments .collapsing {
+      margin-bottom: 0;
+    }
+
+    .board-toggle {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      /* height: 45px; */
+      position: relative;
+      float: left;
+      width: 100%;
+      /* display: block; */
+      align-items: center;
+    }
+
+    .board-toggle span {
+      text-align: right;
+    }
+
+    .board-toggle a {
+      text-align: left;
+    }
+
+    a.board-toggle:hover {
+      text-align: left;
+      text-decoration: underline;
+      text-decoration-color: #428bca;
+    }
+
+    .board-toggle.collapsed span::after {
+      content: 'Show More +';
+    }
+
+    .board-toggle span::after {
+      content: 'Show Less -';
+    }
+
+    .collapsing {
+      position: relative;
+      float: left;
+      margin-bottom: 25px;
+    }
+
+    .board .collapse {
+      margin-bottom: 25px;
+      float: left;
+    }
+
+    a {
+      background: 0 0;
+      color: #428bca;
+      text-decoration: none;
+    }
+
+    /* TIMELINE */
+    .timeline-container ol {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    a.timeline-link {
+      background: #00703A !important;
+      border-radius: 8px;
+      font-family: starfall_blockregular_bold, sans-serif;
+      font-size: 18px;
+      color: #ffffff !important;
+      padding: 6px 20px;
+      margin-top: 6px;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    a.timeline-link:hover,
+    a.timeline-link:active {
+      background: #006EDB !important;
+      color: #ffffff !important;;
+      text-decoration: none;
+    }
+
+    .timeline-container li {
+      padding: 10px 10px;
+      border-bottom: 1px dashed #555;
+      position: relative;
+      float: left;
+      width: 100%;
+      box-sizing: border-box;
+
+    }
+
+    .timeline-container li:last-child {
+      border-bottom: 0;
+    }
+
+    .timeline-container .thumbnail {
+      width: 18%;
+      float: left;
+      position: relative;
+      text-align: center;
+    }
+
+    .timeline-container .thumbnail img {
+      width: 100%;
+
+    }
+
+    .timeline-container .copy .timeline-item-description p:first-child {
+      margin-top: 0;
+    }
+
+    .timeline-container .copy {
+      width: 82%;
+      float: left;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      position: relative;
+      padding-left: 10px;
+    }
+
+    .staff-align {
+      text-align: right;
+    }
+
+    .kidsafe-container {
+      padding: 0
+    }
+
+    .main-container.about-us .kidsafe-info {
+      background: #42739e;
+      padding: 15px;
+      margin: 0 0 0 15px;
+      border-radius: 3px;
+      color: #fff;
+      box-shadow: inset 2px 2px 8px #28547b;
+    }
+
+
+    @media screen and (min-width: 1400px) {
+      .staff-align {
+        text-align: right;
+      }
+
+      .staff-align {
+        text-align: right;
+      }
+    }
+
+    @media only screen and (max-width: 991px) {
+      .staff-align {
+        text-align: center;
+      }
+
+      .kidsafe-container {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+
+      .kidsafe-info {
+        margin-left: 0 !important;
+      }
+    }
+
+  </style>
+    <script src="../scripts/matomo.js"></script>
+    <script src="../scripts/bootstrap.bundle.min.js"></script>
+    <script src="../scripts/jquery-3.6.1.min.js"></script>
+            </head>
+<body>
+<noscript>Please enable javascript to use this site</noscript>
+<nav class="navbar fixed-top navbar-expand-lg" role="navigation" aria-label="navigation-container">
+    <div class="container-fluid pl-2 g-0">
+        <a class="navbar-brand" href="../html/teach.starfall.com.html"><img class="logo no-print" src="../images/ptclogo.png" alt="home"></a>
+        <button style="margin-right: 7px" class="btn btn-orange no-print navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            Menu <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-lg-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle p-0" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="top-using">Using</span> Starfall
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="../html/where-do-i-start.html">Where Do I Start?</a></li>
+                        <li><a class="dropdown-item" href="../html/activities.html">Search Starfall Activities</a></li>
+                        <li><a class="dropdown-item" href="../html/guides-by-grade.html">Starfall Guides by Grade</a></li>
+                        <li><a class="dropdown-item" href="../html/research.html">Starfall Information &amp; Research</a></li>
+                        <li><a class="dropdown-item" href="../documents/starfall-for-your-school-or-district.pdf" target="_blank">Starfall for Your School or District</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle p-0" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Worksheets
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="../html/worksheets.html">Customizable Worksheets</a></li>
+                        <li><a class="dropdown-item" href="../html/worksheets.html">Ready-Made Worksheets</a></li>
+                        <li><a class="dropdown-item" href="../html/worksheets.html">All Worksheets</a></li>
+
+                    </ul>
+                </li>
+                <li><a class="nav-item" href="../html/books.html">Books</a></li>
+                <li><a class="nav-item" href="../html/music.html">Music</a></li>
+                <li><a class="nav-item" href="../html/projectables.html">Projectables</a></li>
+                <li><a class="nav-item" href="../html/curriculum.html">Curriculum</a></li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle p-0" href="#" id="navbarDropdown3" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Follow
+                    </a>
+                    <ul class="dropdown-menu social" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item ns-twitter" target="_blank" href="../html/gated.html">x.com</a></li>
+                        <li><a class="dropdown-item ns-facebook" target="_blank" href="../html/gated.html">Facebook</a></li>
+                        <li><a class="dropdown-item ns-pinterest" target="_blank" href="../html/gated.html">Pinterest</a></li>
+                        <li><a class="dropdown-item ns-linkedin" target="_blank" href="../html/gated.html">LinkedIn</a></li>
+                        <li><a class="dropdown-item ns-youtube" target="_blank" href="../html/gated.html">Youtube</a></li>
+                        <li><a class="dropdown-item" href="../html/newsletter.html">Newsletter</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="position-relative text-center mb-lg-0 mb-sm-2 d-md-flex flex-md-column align-items-md-center" style="padding:0px 6px;">
+            <button class="share-icon btn dropdown-toggle me-1" id="navbarDropdownShare" type="button" data-bs-toggle="dropdown" aria-expanded="false"><img src="../images/share.svg" alt="share this page"> <span>Share</span></button>
+
+            <ul class="dropdown-menu share mb-sm-2 pt-sm-2" aria-labelledby="navbarDropdownShare">
+                <li>
+                    <a href="../html/mailto:.html" target="_blank">
+                        <img src="../images/social-icon-bw-email.png" alt="email icon">
+                    </a>
+                </li>
+                <li>
+                    <a href="../html/gated.html" target="_blank">
+                        <img src="../images/social-icon-bw-facebook.png" alt="facebook icon">
+                    </a>
+                </li>
+                <li>
+                    <a href="../html/gated.html" target="_blank">
+                        <img src="../images/social-icon-bw-x.png" alt="twitter icon">
+                    </a>
+                </li>
+                <li>
+                    <a href="../html/gated.html" target="_blank">
+                        <img src="../images/social-icon-bw-pinterest.png" alt="pinterest icon">
+                    </a>
+                </li>
+            </ul>
+            </div>
+            <button class="d-block no-print btn btn-orange search-icon search-icon-large" data-bs-toggle="modal" data-bs-target="#search-modal" tabindex="0"><span>Search</span>
+                <img src="../images/search.svg" style="margin-top: -3px;" class="ml-2" alt="">
+            </button>
+            <div class="no-print other-starfall">
+                <a href="../html/starfall.com.html">Starfall <span>Home</span></a>
+                <hr>
+                <a href="../html/store.starfall.com.html"><span>Starfall</span> Store</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<script>
+    $(document).ready(function(){
+        $('.ns-twitter').on('click', function(){_paq.push(['trackEvent', 'Social', 'Click', 'Nav', 'Twitter'])})
+        $('.ns-facebook').on('click', function(){_paq.push(['trackEvent', 'Social', 'Click', 'Nav', 'Facebook'])})
+        $('.ns-pinterest').on('click', function(){_paq.push(['trackEvent', 'Social', 'Click', 'Nav', 'Pinterest'])})
+        $('.ns-youtube').on('click', function(){_paq.push(['trackEvent', 'Social', 'Click', 'Nav', 'Youtube'])})
+        $('.ns-linkedin').on('click', function(){_paq.push(['trackEvent', 'Social', 'Click', 'Nav', 'LinkedIn'])})
+
+        $('.fs-facebook').on('click', function(){_paq.push(['trackEvent', 'Social', 'Click', 'Footer', 'Facebook'])})
+        $('.fs-pinterest').on('click', function(){_paq.push(['trackEvent', 'Social', 'Click', 'Footer', 'Pinterest'])})
+        $('.fs-twitter').on('click', function(){_paq.push(['trackEvent', 'Social', 'Click', 'Footer', 'Twitter'])})
+        $('.fs-youtube').on('click', function(){_paq.push(['trackEvent', 'Social', 'Click', 'Footer', 'Youtube'])})
+    })
+</script>
+  <div class="section p-0" role="main">
+    <div class="container-lg">
+      <h1>About Starfall Education Foundation</h1>
+      <div class="main-title-subhead">Where Children Have Fun Learning <span>to Read<sup>™</sup></span>
+      </div>
+      <div class="main-container about-us">
+        <div class="row">
+          <div class="col-sm-7 intro-text">
+            <p>
+              Starfall Education Foundation is a publicly supported nonprofit organization, 501(c)(3). We
+              create free and low-cost experiences whereby children can successfully learn through exploration. On the
+              Starfall website and in Starfall classrooms, children have fun while learning in an environment of
+              collaboration, wonderment, and play. We teach through positive reinforcement to ensure children become
+              confident, intrinsically motivated, and successful.
+            </p>
+          </div>
+          <div class="col-sm-5 kidsafe-container">
+            <div class="kidsafe-info">
+              <a class="d-block text-center" href="../html/gated.html" target="_blank"> <img src="../images/kidsafe-seal.png" onError="this.onerror=null;this.src='/lv/img/kidsafe.png';" class="embed" alt="Starfall.com is listed by the kidSAFE Seal Program." style="    max-width: 160px;
+    width: 100%;"> </a>
+              Starfall.com is listed by the kidSAFE Seal Program. To learn more, click on the seal or go to www.kidsafeseal.com.
+            </div><!--kidsafe-info-->
+          </div><!-- col-lg-3 col-md-4 -->
+          <div class="col-xs-12 history">
+            <h1><span>History</span></h1>
+            <img src="../images/bpb-STAR.svg" alt="Backpack Bear">
+            <p>
+              Starfall's founder Stephen Schutz never forgot his childhood struggle to read. As an adult he was
+              naturally motivated to create a resource to help children like himself. The Starfall website opened
+              on August 27, 2002 after two years of development. The concept was to create an environment "Where
+              Children Have Fun Learning to Read<sup>™</sup>." The website was offered to the public completely free.
+              Starfall expanded to become a fully developed kindergarten English and Language Arts curriculum and
+              a comprehensive pre-K curriculum. Over the years the Starfall website's offerings have grown in the
+              number of songs, books, and mathematics activities extending to second grade. In 2012 Starfall
+              began providing its activities as apps for mobile devices. It is now a place where any child can learn
+              reading and mathematics through exploration.
+            </p>
+            <p>
+              On July 1, 2015, the Polis-Schutz family donated their full interest in Starfall to the Starfall
+              Education Foundation after supporting the project as a social enterprise for 15 years. The Polis-Schutz
+              family shares a passion for education. Stephen's wife, Susan Polis Schutz, was a teacher in
+              New Jersey and New York City in the 1960s. Their oldest son, Jared Polis, served on the Colorado State
+              Board of Education (2000-2006) and started two other educational non-profits. As a publicly supported
+              non-profit 501(c)(3) organization Starfall continues this tradition of public service.
+            </p>
+          </div><!-- col-xs-12 -->
+
+          <div class="col-xs-12">
+
+            <div class="timeline-container">
+              <div class="timeline-header">Recent Timeline</div>
+              <div class="timeline-scroll">
+                <ol>
+    <li>
+        <div class="row">
+            <div class="thumbnail"><img style="width:80%;" src="../images/kindness-counter-70M.png" alt="Starfall timeline image"></div>
+            <div class="copy">
+                <div class="timeline-item-title">Starfall Reaches 70 Million Acts of Kindness</div>
+                <div class="timeline-item-year">Feb. 2025</div>
+                <div class="timeline-item-description"><p>Starfall surpasses its goal of 70 million acts of kindness entered by children on the Worldwide Acts of Kindness Counter. Children can <a href="../html/proud.html">Light Up the World with Acts of Kindness</a> by adding their own.</p></div>
+            </div>
+        </div><!--row-->
+    </li>
+
+    <li>
+        <div class="row">
+            <div class="thumbnail"><img style="width:80%;" src="../images/ActsOfKindnessExhibit.jpg" alt="Starfall timeline image"></div>
+            <div class="copy">
+                <div class="timeline-item-title">Starfall Debuts the Acts of Kindness Museum Exhibit</div>
+                <div class="timeline-item-year">Jan. 2025</div>
+                <div class="timeline-item-description"><p>The first-of-its-kind Starfall™ Interactive Exhibit extends a related activity on Starfall.com and the Starfall app, allowing children to create an avatar and add acts of kindness to a Worldwide Acts of Kindness Counter. The avatar then appears on screen in real time with other entries from around the globe.</p></div>
+            </div>
+        </div><!--row-->
+    </li>
+
+    <li>
+        <div class="row">
+            <div class="thumbnail"><img style="width:80%;" src="../images/PCMag.png" alt="Starfall timeline image"></div>
+            <div class="copy">
+                <div class="timeline-item-title">Starfall Earns Ranking from PC Mag</div>
+                <div class="timeline-item-year">Jan. 2024</div>
+                <div class="timeline-item-description"><p>Starfall ranks as "Best for Elementary School Reading and Math" in PC Mag's The 15 Best Online Learning Services for Kids for 2024. </p></div>
+            </div>
+        </div><!--row-->
+    </li>
+
+    <li>
+        <div class="row">
+            <div class="thumbnail"><img style="width:80%;" src="../images/MDM_Timeline.png" alt="Starfall timeline image"></div>
+            <div class="copy">
+                <div class="timeline-item-title">Starfall Enables MDM</div>
+                <div class="timeline-item-year">Aug. 2023</div>
+                <div class="timeline-item-description"><p>Starfall makes it easy for organizations to deploy and authenticate the Starfall App on multiple devices with Mobile Device Management and managed app configurations.  </p></div>
+            </div>
+        </div><!--row-->
+    </li>
+
+
+    <li>
+        <div class="row">
+            <div class="thumbnail"><img style="width:80%;" src="../images/ptc4-screenshot.png" alt="Starfall timeline image"></div>
+            <div class="copy">
+                <div class="timeline-item-title">Major Update to the Starfall Parent-Teacher Center</div>
+                <div class="timeline-item-year">Apr. 2023</div>
+                <div class="timeline-item-description"><p>Starfall rebuilds its educator website from the ground up! The update brings powerful search tools for worksheets, improved visuals, intuitive navigation, and new grade-specific guides to using Starfall's free and member resources. </p></div>
+            </div>
+        </div><!--row-->
+    </li>
+
+    <li>
+        <div class="row">
+            <div class="thumbnail"><img style="width:80%;" src="../images/homeschool-com-secular-curric-2023.jpeg" alt="Starfall timeline image"></div>
+            <div class="copy">
+                <div class="timeline-item-title">Secular Homeschool Award</div>
+                <div class="timeline-item-year">Mar. 2023</div>
+                <div class="timeline-item-description"><p>Starfall earns the Secular Homeschool Award for Best Preschool Curriculum from Homeschool.com.</p></div>
+            </div>
+        </div><!--row-->
+    </li>
+
+    <li>
+        <div class="row">
+            <div class="thumbnail"><img style="width:80%;" src="../images/20thBirthday.png" alt="Starfall timeline image"></div>
+            <div class="copy">
+                <div class="timeline-item-title">Happy Anniversary!</div>
+                <div class="timeline-item-year">Aug. 2022</div>
+                <div class="timeline-item-description"><p>Starfall.com celebrates 20 years. </p></div>
+            </div>
+        </div><!--row-->
+    </li>
+
+    <li>
+        <div class="row">
+            <div class="thumbnail"><img style="width:80%;" src="../images/preview-full-Apple-App-Icon.png" alt="Starfall timeline image"></div>
+            <div class="copy">
+                <div class="timeline-item-title">Starfall Updated for Android</div>
+                <div class="timeline-item-year">Jun. 2022</div>
+                <div class="timeline-item-description"><p>After the growing popularity of subscriptions on iOS, Starfall launches an updated Android app including subscriptions on Google Play.</p></div>
+            </div>
+        </div><!--row-->
+    </li>
+
+    <li>
+        <div class="row">
+            <div class="thumbnail"><img style="width:80%;" src="../images/preview-g45-timeline.png" alt="Starfall timeline image"></div>
+            <div class="copy">
+                <div class="timeline-item-title">Starfall Grows Into 4th and 5th Grades</div>
+                <div class="timeline-item-year">Dec. 2021</div>
+                <div class="timeline-item-description"><p>Starfall expands into new territory, adding advanced activities and games for grades 4 and 5. The new learning hub launches with two sections: English and Math. Available initially on the Starfall.com website only.</p></div>
+            </div>
+        </div><!--row-->
+    </li>
+
+    <li>
+        <div class="row">
+            <div class="thumbnail"><img style="width:80%;" src="../images/preview-full-Apple-App-Icon.png" alt="Starfall timeline image"></div>
+            <div class="copy">
+                <div class="timeline-item-title">Starfall on iOS Upgraded</div>
+                <div class="timeline-item-year">Oct. 2020</div>
+                <div class="timeline-item-description"><p>Grade 1, 2, and 3 content arrives on the Starfall App for
+                        iOS, as found on the Starfall website. The new app also supports an in-app subscription
+                        option for individual home users.</p></div>
+            </div>
+        </div><!--row-->
+    </li>
+
+    <li>
+        <div class="row">
+            <div class="thumbnail"><img src="../images/Groups-StarSceenshot.png" alt="Starfall timeline image"></div>
+            <div class="copy">
+                <div class="timeline-item-title">Remote Access for Enrolled Students</div>
+                <div class="timeline-item-year">Aug. 2020</div>
+                <div class="timeline-item-description"><p>Starfall releases a new Group Access feature for all
+                        School, Classroom, and Teacher members to support remote learning for the 20-21 school
+                        year.</p></div>
+            </div>
+        </div><!--row-->
+    </li>
+
+    <li>
+        <div class="row">
+            <div class="thumbnail"><img src="../images/CourtesyCodes.png" alt="Starfall timeline image"></div>
+            <div class="copy">
+                <div class="timeline-item-title">Courtesy Access as Schools Close</div>
+                <div class="timeline-item-year">May 2020</div>
+                <div class="timeline-item-description"><p>As schools face closure due to COVID-19, Starfall begins
+                        sending courtesy home access codes to educators for distribution to students. Over 700,000
+                        codes issued.</p></div>
+            </div>
+        </div><!--row-->
+    </li>
+
+    <li data-date="02/15/2020">
+        <div class="row">
+            <div class="thumbnail"><img src="../images/t-23.png" alt="Starfall timeline image">
+            </div>
+            <div class="copy">
+                <div class="timeline-item-title">Continued Expansion of Advanced Content</div>
+                <div class="timeline-item-year">Feb. 2020</div>
+                <div class="timeline-item-description"><p>Starfall continues content updates for Grades 1, 2, and 3
+                        with new activities featuring grammar, punctuation, sentence structure, and parts of
+                        speech.</p></div>
+            </div>
+        </div><!--row-->
+    </li>
+
+    <li data-date="12/11/2019">
+        <div class="row">
+            <div class="thumbnail"><img style="width: 75%" src="../images/t-hth.png" alt="Starfall timeline image"></div>
+            <div class="copy">
+                <div class="timeline-item-title">HowToHomeschool.com Award</div>
+                <div class="timeline-item-year">Dec. 2019</div>
+                <div class="timeline-item-description"><p>Starfall wins Best Homeschool Curriculum and Resources
+                        award from HowToHomeschool.com</p></div>
+            </div>
+        </div><!--row--> </li>
+
+    <li data-date="08/09/2019">
+        <div class="row">
+            <div class="thumbnail"><img src="../images/t-accessibility.png" alt="Starfall timeline image"></div>
+            <div class="copy">
+                <div class="timeline-item-title">Accessible Index</div>
+                <div class="timeline-item-year">Aug. 2019</div>
+                <div class="timeline-item-description"><p>Starfall expands features for accessibility with an
+                        all-new fully accessible index, featuring keyboard-friendly activities, closed-captions, and
+                        visual descriptions.</p></div>
+            </div>
+        </div><!--row--> </li>
+
+
+    <li data-date="06/15/2019">
+        <div class="row">
+            <div class="thumbnail"><img style="max-width: 600px; width: 100%" src="../images/t-123.png" alt="Starfall timeline image">
+            </div>
+            <div class="copy">
+                <div class="timeline-item-title">Expanded ELA Content</div>
+                <div class="timeline-item-year">Jun. 2019</div>
+                <div class="timeline-item-description"><p>Starfall expands English Language Arts content for Grades
+                        1, 2, and 3, beginning with Nouns and Verbs.</p></div>
+            </div>
+        </div><!--row--> </li>
+
+    <li data-date="04/15/2019">
+        <div class="row">
+            <div class="thumbnail"><img src="../images/t-ptcs-updates.jpg" alt="Starfall timeline image">
+            </div>
+            <div class="copy">
+                <div class="timeline-item-title">Revised Store and Parent-Teacher Center</div>
+                <div class="timeline-item-year">Apr. 2019</div>
+                <div class="timeline-item-description"><p>The Starfall Store and Parent-Teacher
+                        Center are streamlined and updated to improve usability.</p></div>
+            </div>
+        </div><!--row--> </li>
+    <li data-date="02/10/2019">
+        <div class="row">
+            <div class="thumbnail"><img src="../images/t-html5-index.jpg" alt="Starfall timeline image">
+            </div>
+            <div class="copy">
+                <div class="timeline-item-title">HTML5 Conversion!</div>
+                <div class="timeline-item-year">Feb. 2019</div>
+                <div class="timeline-item-description"><p>Completed the website conversion from Flash to HTML5 and
+                        video of over 700 Starfall animated activities. HTML5 made Starfall available on mobile
+                        browsers whereas previously it was only available through mobile apps.</p></div>
+            </div>
+        </div><!--row--> </li>
+
+
+    </ol>              </div>
+            </div>
+            <div class="text-center">
+              <a href="../html/timeline.html" class="timeline-link">See Full Timeline</a>
+            </div>
+
+          </div><!--col-xs-12 timeline-->
+
+          <div class="board col-xs-12">
+            <h1><span>Board of Directors</span></h1>
+            <p class="board-message">
+              NO REMUNERATION IS PAID TO THE OFFICERS AND MEMBERS OF THE BOARD OF DIRECTORS EXCEPT AS NOTED BY AN ASTERISK
+              APPEARING AFTER A PERSON'S NAME.
+            </p>
+            <a class="board-toggle collapsed" data-bs-toggle="collapse" href="#collapse1">
+              <span></span>
+              <h2> Stephen Schutz Ph.D., Chairman and Founder </h2></a>
+            <div id="collapse1" class="collapse">
+              The inspiration for Starfall originated in Stephen’s childhood. At age 9, Stephen was still struggling to
+              read. What came easily for his peers required many more hours of his work. Although he possessed mathematics
+              skills, as a reader, he was consistently toward the bottom of his class. He did not learn to read until 5th
+              grade. After attending the High School of Music and Art he pursued his interest in mathematics and science
+              at MIT and Princeton University, earning a PhD in Physics. After a two-year fellowship in solar physics, he
+              traveled around the country with his wife, Susan Polis Schutz, selling handmade posters out of their
+              pickup truck. This enterprise evolved into Blue Mountain Arts publishing company and eventually into the
+              well known e-card website bluemountain.com. Stephen’s vision to help today’s children learn to read
+              through audiovisual interactivity and positive reinforcement led to the creation of Starfall.
+            </div>
+            <a class="board-toggle collapsed" data-bs-toggle="collapse" href="#collapse2">
+              <span></span>
+              <h2> Joel Citron, Board Member </h2></a>
+            <div id="collapse2" class="collapse">
+              Joel is currently Co-CEO of Tenth Avenue Holdings and Chairman of the Board of Tenth Avenue Commerce LLC,
+              Avenue Income Credit Strategies Fund (NYSE: ACP), Avenue Mutual Fund Trust (Avenue Credit Strategies
+              Investors ACSAX and ACSBX) and Evolution Gaming Group AB (SS: EVO). Most recently, Joel served as President
+              and CEO of Jovian Holdings, a private investment and operating company (2002 to 2008), and
+              he was also Chairman of Provide Commerce Inc. from 2001 to 2006. Previously, he held executive and
+              operating positions in various companies. He has and continues to serve on the Board of Directors of several
+              public and private companies in Europe and the U.S. He is also actively involved in philanthropy and is
+              currently on the Executive Committee and a past President of the Board of Trustees at the Abraham Joshua
+              Heschel School in New York (Nursery through 12th Grade). Joel is a board member of the University of
+              Southern California Shoah Foundation Institute. Mr. Citron holds an MA in Economics and a BSc in Business
+              Administration from the University of Southern California.
+            </div>
+            <a class="board-toggle collapsed" data-bs-toggle="collapse" href="#collapse3">
+              <span></span>
+              <h2> Myrna Estes, Board Member </h2></a>
+            <div id="collapse3" class="collapse">
+              Myrna has been involved in children’s education for over 45 years. Following graduation from Rider
+              University, she began her teaching career in New York’s Spanish Harlem teaching first grade. She
+              soon moved to Pittsfield, Massachusetts where she taught for 35 years. An early innovator in exploring
+              better ways of teaching, she incorporated music in her curriculum to facilitate active learning in her
+              class. Myrna was part of Starfall's early development, drawing upon her years of teaching young children
+              and testing the Starfall methods with her students. Now retired from active teaching, she serves as a
+              volunteer at an elementary school where she continues to test many of Starfall’s programs.
+            </div>
+            <a class="board-toggle collapsed" data-bs-toggle="collapse" href="#collapse4">
+              <span></span>
+              <h2> Greg Harfst, Board Member </h2></a>
+            <div id="collapse4" class="collapse">
+              Greg is a computer scientist who develops software for companies in the financial industry. He
+              received an M.S. in computer science, and a B.S. in math and computer science, from the University of
+              Illinois – Urbana Champaign. Greg also studied computer science at the Massachusetts Institute of Technology.
+              Greg currently works for a private company in Irvine, CA.
+            </div>
+            <a class="board-toggle collapsed" data-bs-toggle="collapse" href="#collapse5">
+              <span></span>
+              <h2> Gina Nocera, Board Member </h2></a>
+            <div id="collapse5" class="collapse">
+              Gina Nocera is the Executive Director of the Jared Polis Foundation in Boulder, Colorado. Since
+              2004, she has managed programs focused on education and technology within the private operating
+              foundation. Gina also manages the foundation’s donor-advised fund at The Community Foundation of
+              Boulder County, which awards grants to Colorado nonprofits focused on education, environment, health
+              and diverse/healthy communities. Prior to the foundation, Gina worked in education and environmental
+              advocacy nonprofits in Colorado and Washington, DC. She has taught English on the secondary level in
+              Telluride and Boulder, Colorado. Gina has a BA in Political Science from the Ohio State University and an
+              MA in English from the University of Colorado at Boulder.
+            </div>
+            <a class="board-toggle collapsed" data-bs-toggle="collapse" href="#collapse6">
+              <span></span>
+              <h2> Jordanna Polis Schutz, Board Member </h2></a>
+            <div id="collapse6" class="collapse">
+              Jordanna Polis Schutz is a technologist, education enthusiast, and early stage investor who focuses
+              on impactful solutions to meaningful problems. She has previously worked in public policy and
+              national security, including serving in a presidential administration, and prior to that as an
+              entrepreneur, including managing strategic product development at <a href="../html/gated.html" rel="noreferrer noopener">bluemountain.com</a> and founding a company that delivered a
+              secure payment platform during the rise of e-commerce. She holds an AB in Physics and Mathematics from
+              Harvard University, an SM from the Harvard-MIT Division of Health Sciences and Technology, and an MBA from
+              MIT Sloan School of Management. Her father, Stephen Schutz, taught her how to read (many years ago)
+              using the same methods and stories that he would later make available to all young readers via Starfall.
+            </div>
+
+            <h1><span>Officers</span></h1>
+            <a class="board-toggle collapsed" data-bs-toggle="collapse" href="#collapse7">
+              <span></span>
+              <h2> Roger Wilson, President* </h2></a>
+            <div id="collapse7" class="collapse">
+              Roger transitioned from an early interest in music and theater to a career in graphic arts. He was
+              Creative and Public Relations Director at Blue Mountain Arts for 5 years. He later earned a B.A. in
+              Physics from the University of Colorado in 1987. While a student he worked as a research assistant in
+              biopsychology and at the Laboratory for Atmospheric and Space Physics. Roger worked for 12 years as a
+              system-software engineer with Lockheed Space Systems. In 2001 Roger created the computer and network
+              systems for Starfall and served as its CTO until 2016 when he became Starfall's president. He is
+              a former Colorado State Representative. Having attended Colorado Outward Bound and the National Outdoor
+              Leadership School in his early years, he is an enthusiastic hiker and skier.
+            </div>
+            <a class="board-toggle collapsed" data-bs-toggle="collapse" href="#collapse8">
+              <span></span>
+              <h2> Jay Grodin J.D., Secretary </h2></a>
+            <div id="collapse8" class="collapse">
+              Jay graduated from the University of Southern California with a B.S. in business administration and
+              from the University of California, Berkeley, School of Law with a J.D. He was a partner with the
+              international law firm of White &amp; Case where he specialized in corporate transactions. For the past 25
+              years he has been engaged in commercial real estate and also serves as an officer of SPS Studios, Inc.
+              Over the years Jay has served as a director or trustee on the boards of several not-for-profit
+              organizations including Occidental College, The YMCA of Metropolitan Los Angeles, the Independent Colleges
+              of Southern California, and currently the Autry National Center where he is a member of the Executive Committee.
+            </div>
+            <a class="board-toggle collapsed" data-bs-toggle="collapse" href="#collapse9">
+              <span></span>
+              <h2> Paul Knutson CPA, Treasurer and Assistant Secretary </h2></a>
+            <div id="collapse9" class="collapse">
+              Paul is a Certified Public Accountant in the State of California with more than 25 years of public
+              and private accounting experience. He is a member of both the American Institute of Certified
+              Public Accountants and the California Society of Certified Public Accountants. Prior to his current
+              position as Chief Financial Officer of SPS Studios, he was a Vice President-Controller of a Fortune 500
+              real estate related financial services company.
+            </div>
+            <a class="board-toggle collapsed" data-bs-toggle="collapse" href="#collapse10">
+              <span></span>
+              <h2> Diana Temple, Assistant Treasurer </h2></a>
+            <div id="collapse10" class="collapse">
+              Diana has more than 20 years accounting experience in various industries within the private sector,
+              including real estate development, property management, construction, and agriculture. She
+              holds a Bachelor's Degree in Economics from University of California San Diego. Prior to her current
+              position as Director of Finance at SPS Studios, she was the Controller for JMI Realty, a real estate
+              development company.
+            </div>
+            <a class="board-toggle collapsed" data-bs-toggle="collapse" href="#collapse11">
+              <span></span>
+              <h2>Mark Misiano CPA, Chief Financial Officer*</h2></a>
+            <div id="collapse11" class="collapse"> Mark is a Certified Public Accountant in the state of New York with
+              more than 20 years of public and private accounting experience. He holds a Master of Science Degree in
+              Taxation from Long Island University and a Bachelor of Science Degree in Accounting from the State
+              University of New York, Buffalo. Prior to his current position as Director of Finance and Accounting, he
+              was the Controller and Chief Operating Officer for 18 years at a local business publication.
+            </div>
+
+
+          </div>
+          <div class="staff row">
+            <h1><span>Our Team</span></h1>
+          </div>
+          <div class="staff row">
+            <div class="staff staff-align col-xs-12 col-sm-6 teams pr-2">
+              <img src="../images/0006123279.jpg" alt="Starfall staff photo">
+              <img src="../images/0106123280.jpg" alt="Starfall staff photo">
+              <img src="../images/8495637201.jpg" alt="Starfall staff photo">
+              <img src="../images/20191218h.jpg" alt="Starfall staff photo">
+              <img src="../images/5672453282.jpeg" alt="Starfall staff photo">
+            </div>
+            <div class="staff col-xs-12 col-sm-6 teams">
+
+              <div class="departments"><p>
+                  Led by Stephen Schutz, Roger Wilson, Allie Cohn, Helen Parker, and Mark Misiano.
+                  Starfall is produced by a dedicated and talented team of educators, writers, artists, designers, animators, musicians,
+                  programmers, quality engineers, and systems specialists.
+                </p>
+              </div>
+            </div>
+
+          </div>
+          <div class="staff row">
+            <div class="staff staff-align col-xs-12 col-sm-6 teams pr-2">
+              <img src="../images/9202437800.jpg" alt="Starfall staff photo">
+              <img src="../images/3586421909.jpg" alt="Starfall staff photo">
+              <img src="../images/5499203408.jpg" alt="Starfall staff photo">
+            </div>
+            <div class="staff col-xs-12 col-sm-6 teams text-right align-right">
+              <h2> Content Distribution </h2>
+              <div class="departments"><p>Led by Gina Morgan. Supported by Brandon Barnes and Art Morgan. </p>
+              </div>
+            </div>
+          </div>
+          <div class="staff row">
+            <div class="staff staff-align col-xs-12 col-sm-6 teams pr-2">
+              <img src="../images/9202437800.jpg" alt="Starfall staff photo">
+              <img src="../images/3050024016.jpg" alt="Starfall staff photo">
+              <img src="../images/4086915498.jpg" alt="Starfall staff photo">
+              <img src="../images/6095310868.jpg" alt="Starfall staff photo">
+              <img src="../images/9474695008.jpg" alt="Starfall staff photo">
+              <img src="../images/20220914449.jpg" alt="Starfall staff photo">
+            </div>
+            <div class="staff col-xs-12 col-sm-6 teams text-right align-right">
+              <h2> Content for Grades Pre-K through 3rd </h2>
+              <div class="departments"><p>Led by Gina Morgan. Supported by Dale Beisel,
+                  Craig Deeley, Terrence Keller, Julie Quinsay, and Ashley Rice. </p>
+              </div>
+            </div>
+          </div>
+          <div class="staff row">
+            <div class="staff staff-align col-xs-12 col-sm-6 teams pr-2">
+              <img src="../images/8756633282.jpg" alt="Starfall staff photo">
+              <img src="../images/5481233282.jpg" alt="Starfall staff photo">
+              <img src="../images/20200102.jpg" alt="Starfall staff photo">
+            </div>
+            <div class="staff col-xs-12 col-sm-6 teams">
+              <h2> Content for Grades 4 and 5 </h2>
+              <div class="departments">
+                <p>Led by Steve D. Schulz. Supported by Matt Augustin, and Nathan Drobnack-Ortiz.</p>
+              </div>
+            </div>
+
+          </div>
+          <div class="staff row">
+            <div class="staff staff-align col-xs-12 col-sm-6 teams pr-2">
+              <img src="../images/6333619384.jpg" alt="Starfall staff photo">
+              <img src="../images/7643287495.jpg" alt="Starfall staff photo">
+            </div>
+            <div class="staff col-xs-12 col-sm-6 teams">
+              <h2> Publications and Outreach </h2>
+              <div class="departments"><p>Led by Marc Buchanan. Supported by Angel Frierson.</p>
+              </div>
+            </div>
+          </div>
+          <div class="staff row">
+            <div class="staff staff-align col-xs-12 col-sm-6 teams pr-2">
+              <img src="../images/5635204659.jpg" alt="Starfall staff photo">
+              <img src="../images/7584937212.jpeg" alt="Starfall staff photo">
+              <img src="../images/6754982352.jpg" alt="Starfall staff photo">
+            </div>
+            <div class="staff col-xs-12 col-sm-6 teams">
+              <h2>Customer Service</h2>
+              <div class="departments"><p>Led by Karen Sutherland. Supported by Alicia Taylor and Joshua Wood.</p>
+              </div>
+            </div>
+          </div>
+          <div class="staff row">
+            <div class="staff staff-align col-xs-12 col-sm-6 teams pr-2">
+              <img src="../images/4190413108.jpg" alt="Starfall staff photo">
+              <img src="../images/7614124830.jpg" alt="Starfall staff photo">
+            </div>
+            <div class="staff col-xs-12 col-sm-6 teams">
+              <h2> Business </h2>
+              <div class="departments"><p>Led by Martha Menk. Supported by Shelbi Richman.</p>
+              </div>
+            </div>
+          </div>
+          <div class="staff row">
+            <div class="staff staff-align col-xs-12 col-sm-6 teams align-left pr-2">
+              <img src="../images/20191218g.jpg" alt="Starfall staff photo">
+              <img src="../images/5235204459.jpg" alt="Starfall staff photo">
+              <img src="../images/8574635467.jpg" alt="Starfall staff photo">
+              <img src="../images/5235204459.jpg" alt="Starfall staff photo">
+
+            </div>
+            <div class="staff col-xs-12 col-sm-6 teams">
+              <h2> Software Engineering </h2>
+              <div class="departments"><p>Led by Greg Boubel. Supported by K. Lee, Nick Michaels, and Matt Reese.</p>
+              </div>
+            </div>
+          </div>
+          <div class="staff row">
+            <div class="staff staff-align col-xs-12 col-sm-6 teams align-left pr-2">
+              <img src="../images/0701596038.jpg" alt="Starfall staff photo">
+              <img src="../images/1635059703.jpg" alt="Starfall staff photo">
+            </div>
+            <div class="staff col-xs-12 col-sm-6 teams">
+              <h2>Quality Assurance</h2>
+              <div class="departments"><p>Led by Jon Leyba. Supported by Bret
+                  Riner.</p>
+              </div>
+            </div>
+          </div>
+          <div class="staff row">
+            <div class="staff staff-align col-xs-12 col-sm-6 teams pr-2">
+              <img src="../images/7899608931.jpg" alt="Starfall staff photo">
+              <img src="../images/4138611955.jpg" alt="Starfall staff photo">
+            </div>
+            <div class="staff col-xs-12 col-sm-6 teams">
+              <h2> IT Systems </h2>
+              <div class="departments"><p>Led by Steve Patschke. Supported by Rick Roberts.</p>
+              </div>
+            </div>
+          </div>
+          <div class="staff row">
+            <div class="staff staff-align col-xs-12 col-sm-6 teams pr-2">
+              <img src="../images/20191217.jpg" alt="Starfall staff photo">
+            </div>
+            <div class="staff col-xs-12 col-sm-6 teams">
+              <h2>Human Resources</h2>
+              <div class="departments"><p>Laura Watkins</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="acknowledgments row">
+            <a class="acknowledgments-toggle text-center" data-bs-toggle="collapse" href="#collapseacknowledgments"><h2 class="smaller mt-3">Show More Acknowledgments</h2></a>
+            <div id="collapseacknowledgments" class="collapse">
+              <p>Starfall would not be possible without the support of the Blue Mountain Arts warehouse team.</p>
+              <p>Over the years important contributions have been made by Alicia Ahlstrom, Trish Audet, Fe Baran, Deanna
+                Berget, Karen Bidgood, Patty Brown, Matt Bunning, Dr. Karen Cole, Dan Chao, Kimberly Cooper, Kerry
+                DeZell, Taylor Diltz, Joan Elliott, Wendy Elterman, Hawk Eppler Zindell, Kathy Faber, Pam Ferguson,
+                Flexis (Vasiliy Chernykh, Pavel Didenko, Ilya Stremovsky, and Alexander Tsyplikhin), Judy Goetze, Faith
+                Gowan, Kira Gowan, Stefan Gruber, Jamison Hill, P. Colin Hill, Ryan Hightower, Raymond Hollowell, John
+                Hesterman, Heather Hogan, Smita Khatri, David Lebow, Debby Lee, Frank Lee, Meagan Little, Tiffanie
+                Mahan, Florence Marino, Darla Marquez, Kevan Mills, Emily Moberly, Lindsey Ortiz, Zach Palmer, Michael Ramirez, Jared
+                Ramos, Stephanie Riess, Julie Roland, Jason Truxal, Triska Wasser, Hallye Webb, and Loree Wilcox. We
+                give special recognition and thanks to Brandi Chase our founding Executive Director 2002 to 2016. Thank
+                you.</p>
+              <p>Original music and arrangements by Randin Graves. Additional arrangements by Marty Brinsko, Keith
+                Heldman, and Mike Thompson. Richard James arranged music for the Silly Turkey, Pick a Pumpkin, and Find
+                a Four Leaf Clover activities.</p>
+            </div>
+          </div>
+          <div class="environmental row">
+            <div class="col-xs-12">
+              <h1><span>Environmental Commitment</span></h1>
+              <p>
+                Starfall is committed to reducing our impact on the environment. For the products we manufacture, we
+                choose non-toxic inks and recycled or sustainably sourced paper whenever possible. We design to
+                minimize our use of plastics. We seek US manufacturers first to minimize transportation impact.
+                Our goal is to create the best possible product for you and the earth.
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <p style="text-align:center">
+                Find Starfall Education on <a href="../html/gated.html" target="_blank">Facebook</a> or <a href="../html/gated.html" target="_blank">Pinterest</a>
+                for craft ideas, curriculum updates, and notifications about new content for web and mobile devices.
+              </p>
+            </div>
+          </div>
+          <div class="row contact-row">
+            <div class="col-md-3 col-sm-12">
+              email<br>
+              <a href="../html/mailto:helpdesk@starfall.com.html">helpdesk@starfall.com</a>
+            </div>
+
+            <div class="col-md-3 col-sm-12">
+              toll free<br>
+              phone 888-857-8990<br>
+              fax 800-943-6666
+            </div>
+
+            <div class="col-md-3 col-sm-12">
+              outside the us<br>
+              phone 303-417-6414<br>
+              fax 303-417-6434
+            </div>
+            <div class="col-md-3 col-sm-12">
+              Starfall Education Foundation<br>
+              P.O. Box 359<br>
+              Boulder, CO 80306
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<div class="footer" role="contentinfo" aria-label="footer">
+    <div class="footer-bg">
+        <div class="no-print justify-content-center">
+
+            <div class="col-sm-12">
+                <ul>
+                    <li><a href="../html/about.html">About Starfall</a></li>
+                    <li>
+                        <a href="../html/gated.html" target="_blank">Contact Us</a></li>
+                    <li><a href="../html/privacy.html">Privacy Policy</a></li>
+                    <li><a href="../html/terms.html">Terms of Service</a></li>
+                    <li style="border:0px;"><a href="../html/accessibility.html">Accessibility</a></li>
+                </ul>
+
+                <div class="footer-social">
+                    <a class="fs-facebook" href="../html/gated.html" target="_blank">
+                        <img src="../images/social-icon-facebook.png" alt="Facebook">
+                    </a>
+
+                    <a class="fs-pinterest" href="../html/gated.html" target="_blank">
+                        <img src="../images/social-icon-pinterest.png" alt="Pinterest">
+                    </a>
+
+                    <a class="fs-twitter" href="../html/gated.html" target="_blank">
+                        <img src="../images/social-icon-x.png" alt="Twitter">
+                    </a>
+
+                    <a class="fs-youtube" href="../html/gated.html" target="_blank">
+                        <img src="../images/social-icon-youtube.png" alt="Youtube">
+                    </a>
+                </div><!--footer-social-->
+            </div>
+        </div>
+    </div>
+    <div class="footer-credits">
+        The Starfall Parent-Teacher Center™ is a program service of Starfall Education Foundation, a publicly
+supported nonprofit organization, 501(c)(3). Starfall® and Starfall.com® are registered trademarks in
+the U.S., the European Union, and various other countries. Copyright © 2002–2025 by Starfall Education.
+All rights reserved.
+<br><br>
+We permit materials from the Starfall Parent-Teacher Center™ to be reproduced by teachers or parents for
+noncommercial use in their classroom or home. Any other reproduction is prohibited without written
+permission from the publisher.
+<div class="footer-copyright"></div>    </div>
+</div>
+<script>
+    function createCookie(name,value,days) {
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime()+(days*24*60*60*1000));
+            var expires = "; expires="+date.toGMTString();
+            var domain = ".starfall.com";
+        }
+        else var expires = "";
+        document.cookie = name + "=" + value + expires + ";domain="+domain+";" + "path=/";
+    }
+
+    function readCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0;i < ca.length;i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') c = c.substring(1,c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+        }
+        return null;
+    }
+
+    function eraseCookie(name) {
+        createCookie(name,"",-1);
+    }
+</script>
+<div class="modal fade" id="search-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">SEARCH</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="main-search-form" method="get">
+                    <div class="black-border mb-3">
+                        <input type="text" class="black-border-full form-control main-js-query" placeholder="Search Starfall resources..." required autofocus>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col">
+                            <p class="mb-1">
+                                <strong>I'm Looking for:</strong>
+                            </p>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input main-js-search-selection" type="checkbox" name="selectionGroup[]" id="inlineRadio1" value="download" checked>
+                                <label class="form-check-label" for="inlineRadio1">Ready-Made Worksheets</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input main-js-search-selection" type="checkbox" name="selectionGroup[]" id="inlineRadio2" value="generator" checked>
+                                <label class="form-check-label" for="inlineRadio2">Customizable Worksheets</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input main-js-search-selection" type="checkbox" name="selectionGroup[]" id="inlineRadio3" value="activity" checked>
+                                <label class="form-check-label" for="inlineRadio3">Starfall Activities</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center mt-3">
+                        <button type="button" class="btn btn-primary main-js-submit" data-bs-dismiss="modal">Search!</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function(){
+        $('.main-js-submit').on("click", function(e){
+            e.preventDefault();
+            let selection = $(".main-js-search-selection:checked").map(function(){
+                return '&selection[]=' + $(this).val();
+            }).get();
+
+            let selectionString = '';
+            if(selection.length > 0){
+                selection.forEach(function(item){
+                    selectionString = selectionString + item;
+                })
+                window.location.href = "/search?query=" + $('.main-js-query').val() + selectionString;
+            }else{
+                window.location.href = "/search?query=" + $('.main-js-query').val();
+            }
+        })
+
+        $('#main-search-form').keypress(function(e){
+            if(e.which == 13){
+                e.preventDefault();
+                $('.main-js-submit').click();
+            }
+        });
+
+        $('.modal').on('shown.bs.modal', function() {
+            $(this).find('[autofocus]').focus();
+        });
+    });
+</script></body>
+</html>
