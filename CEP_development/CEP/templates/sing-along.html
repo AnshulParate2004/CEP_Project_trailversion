@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sing-Along Volume 1</title>
+  {% load static %}
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+  }
+  
+  body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #FFDA85;
+  }
+  
+  .player-container {
+      width: 800px;
+      height: 600px;
+      background: linear-gradient(180deg, #74B9F3 0%, #3A85D3 100%);
+      border-radius: 25px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      padding: 20px;
+      position: relative;
+      border: 6px solid white;
+      overflow: visible; /* Changed from hidden to ensure controls are not clipped */
+  }
+  
+  .close-button {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      width: 40px;
+      height: 40px;
+      background-color: #FF0000;
+      border: 3px solid #FFFF00;
+      border-radius: 5px;
+      color: #FFFF00;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 10;
+  }
+  
+  .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+      padding: 0 20px;
+  }
+  
+  .title {
+      text-align: left;
+  }
+  
+  .title h1, .title h2 {
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .title h1 {
+      font-size: 48px;
+      margin-bottom: -5px;
+  }
+  
+  .title h2 {
+      font-size: 36px;
+  }
+  
+  .logo {
+      width: 120px;
+      height: 120px;
+  }
+  
+  .logo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+  }
+  
+  .song-list {
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 15px;
+      overflow: hidden;
+      margin-bottom: 20px;
+  }
+  
+  .song {
+      padding: 15px 20px;
+      font-size: 22px;
+      font-weight: bold;
+      cursor: pointer;
+      color: black;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  .song.active {
+      background-color: #4375B8;
+      color: white;
+  }
+  
+  .song:nth-child(even):not(.active):not(.disabled) {
+      background-color: #FFDA85;
+  }
+  
+  .song:nth-child(odd):not(.active):not(.disabled) {
+      background-color: #FFF3CC;
+  }
+  
+  .song.disabled {
+      background-color: #CCCCCC;
+      color: #999999;
+      cursor: default;
+  }
+  
+  .controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px; /* Increased padding to ensure visibility */
+      visibility: visible; /* Ensure controls are not hidden */
+  }
+  
+  .lyrics-btn {
+      background-color: #377DC3;
+      color: white;
+      border: 3px solid #215C96;
+      border-radius: 10px;
+      padding: 10px 20px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+  }
+  
+  .playback-controls {
+      display: flex;
+      gap: 20px; /* Increased gap for better spacing */
+      visibility: visible; /* Ensure playback controls are not hidden */
+  }
+  
+  .prev-btn, .play-btn, .next-btn {
+      width: 70px; /* Increased width for visibility */
+      height: 70px; /* Increased height for visibility */
+      background-color: #377DC3;
+      border: 3px solid #215C96;
+      border-radius: 10px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 1; /* Ensure full opacity */
+      visibility: visible; /* Ensure buttons are not hidden */
+  }
+  
+  .prev-icon, .next-icon, .play-icon {
+      width: 0;
+      height: 0;
+      border-style: solid;
+      visibility: visible; /* Ensure icons are not hidden */
+  }
+  
+  .prev-icon {
+      border-width: 20px 30px 20px 0; /* Larger triangle for visibility */
+      border-color: transparent white transparent transparent;
+      margin-right: 5px;
+  }
+  
+  .next-icon {
+      border-width: 20px 0 20px 30px; /* Larger triangle for visibility */
+      border-color: transparent transparent transparent white;
+      margin-left: 5px;
+  }
+  
+  .play-icon {
+      border-width: 25px 0 25px 35px; /* Larger play triangle for visibility */
+      border-color: transparent transparent transparent white;
+  }
+  
+  .pause-icon {
+      width: 35px; /* Increased width for visibility */
+      height: 50px; /* Increased height for visibility */
+      position: relative;
+      display: none;
+  }
+  
+  .pause-icon:before, .pause-icon:after {
+      content: '';
+      position: absolute;
+      width: 12px; /* Increased width for visibility */
+      height: 50px; /* Increased height for visibility */
+      background-color: white;
+      top: 0;
+  }
+  
+  .pause-icon:before {
+      left: 5px;
+  }
+  
+  .pause-icon:after {
+      right: 5px;
+  }
+  
+  .play-btn.playing .play-icon {
+      display: none;
+  }
+  
+  .play-btn.playing .pause-icon {
+      display: block;
+  }
+  
+  .brand {
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* For mobile devices */
+  @media (max-width: 830px) {
+      .player-container {
+          width: 95%;
+          height: auto;
+          min-height: 600px;
+      }
+  
+      .header {
+          flex-direction: column;
+          text-align: center;
+      }
+  
+      .title {
+          text-align: center;
+          margin-bottom: 20px;
+      }
+  
+      .controls {
+          flex-direction: column;
+          gap: 20px;
+      }
+  
+      .lyrics-btn {
+          margin-bottom: 10px;
+      }
+      
+      .brand {
+          margin-top: 10px;
+      }
+  }
+  </style>
+</head>
+<body>
+  <div class="player-container">
+    <div class="close-button">✕</div>
+    
+    <div class="header">
+      <div class="title">
+        <h1>Sing-Along Volume 1</h1>
+      </div>
+    </div>
+    
+    <div class="song-list">
+      <div class="song active" data-song="song1.mp3">1. Twinkle Twinkle Little Star</div>
+      <div class="song" data-song="song2.mp3">2. Alphabet Song</div>
+      <div class="song" data-song="song3.mp3">3. Happy Songs</div>
+      <div class="song" data-song="song4.mp3">4. Backpack Bear's ABCs</div>
+      <div class="song" data-song="song5.mp3">5. Backpack Is a Little Bear</div>
+      <div class="song" data-song="song6.mp3">6. Down by the A-B-Sea</div>
+      <div class="song disabled" data-song="song7.mp3">7. Every Day Is Earth Day</div>
+      <div class="song disabled" data-song="song8.mp3">8. Five Little Bears</div>
+    </div>
+    
+    <div class="controls">
+      <button class="lyrics-btn">LYRICS</button>
+      <div class="playback-controls">
+        <button class="prev-btn">
+          <div class="prev-icon"></div>
+        </button>
+        <button class="play-btn">
+          <div class="play-icon"></div>
+        </button>
+        <button class="next-btn">
+          <div class="next-icon"></div>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Elements
+      const songElements = document.querySelectorAll('.song:not(.disabled)');
+      const audioPlayer = document.getElementById('audio-player');
+      const playBtn = document.querySelector('.play-btn');
+      const prevBtn = document.querySelector('.prev-btn');
+      const nextBtn = document.querySelector('.next-btn');
+      const closeBtn = document.querySelector('.close-button');
+      const lyricsBtn = document.querySelector('.lyrics-btn');
+
+      // Variables
+      let currentSongIndex = 0;
+      let isPlaying = false;
+
+      // Song file mapping
+      const songFiles = {
+        'song1.mp3': '{% static "audio/twinkal.mp3" %}',
+        'song2.mp3': '{% static "audio/abc.mp3" %}',
+        'song3.mp3': '{% static "audio/happysongs.mp3" %}',
+        'song4.mp3': '{% static "audio/twinkal.mp3" %}', // Fallback
+        'song5.mp3': '{% static "audio/abc.mp3" %}',     // Fallback
+      };
+
+      // Initialize
+      function init() {
+        songElements[0].classList.add('active');
+        loadSong(songElements[0].getAttribute('data-song'));
+
+        const pauseIcon = document.createElement('div');
+        pauseIcon.className = 'pause-icon';
+        playBtn.appendChild(pauseIcon);
+      }
+
+      function loadSong(songSrc) {
+        const actualSongFile = songFiles[songSrc] || songSrc;
+        audioPlayer.src = actualSongFile;
+        console.log(`Loading song: ${actualSongFile}`);
+      }
+
+      function updatePlayButtonUI() {
+        if (isPlaying) {
+          playBtn.classList.add('playing');
+        } else {
+          playBtn.classList.remove('playing');
+        }
+      }
+
+      function togglePlay() {
+        if (isPlaying) {
+          audioPlayer.pause();
+        } else {
+          audioPlayer.play()
+            .catch(error => {
+              console.log("Audio playback error:", error);
+              alert("There was an error playing the audio file. Please make sure it exists.");
+            });
+        }
+        isPlaying = !isPlaying;
+        updatePlayButtonUI();
+      }
+
+      function playPreviousSong() {
+        currentSongIndex = (currentSongIndex - 1 + songElements.length) % songElements.length;
+        updateActiveSong();
+      }
+
+      function playNextSong() {
+        currentSongIndex = (currentSongIndex + 1) % songElements.length;
+        updateActiveSong();
+      }
+
+      function updateActiveSong() {
+        songElements.forEach(song => song.classList.remove('active'));
+        songElements[currentSongIndex].classList.add('active');
+        loadSong(songElements[currentSongIndex].getAttribute('data-song'));
+        if (isPlaying) {
+          audioPlayer.play()
+            .catch(error => {
+              console.log("Audio playback error:", error);
+              alert("There was an error playing the audio file. Please make sure it exists.");
+              isPlaying = false;
+              updatePlayButtonUI();
+            });
+        }
+      }
+
+      // Event Listeners
+      playBtn.addEventListener('click', togglePlay);
+      prevBtn.addEventListener('click', playPreviousSong);
+      nextBtn.addEventListener('click', playNextSong);
+      closeBtn.addEventListener('click', function() {
+        if (isPlaying) {
+          audioPlayer.pause();
+          isPlaying = false;
+          updatePlayButtonUI();
+        }
+        window.location.href = "{% url 'index' %}"; // Redirect to index.html
+      });
+      lyricsBtn.addEventListener('click', function() {
+        alert('Lyrics button clicked. In a real application, this would show the lyrics.');
+      });
+
+      songElements.forEach((song, index) => {
+        song.addEventListener('click', function() {
+          currentSongIndex = index;
+          updateActiveSong();
+          if (!isPlaying) {
+            togglePlay();
+          }
+        });
+      });
+
+      audioPlayer.addEventListener('ended', playNextSong);
+
+      init();
+    });
+  </script>
+</body>
+</html>

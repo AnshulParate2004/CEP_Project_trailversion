@@ -1,0 +1,102 @@
+body {
+    background-color: #53b32c;
+    padding: 0px;
+    margin: 0px;
+    font-family: VAGzStarBold;
+    box-sizing: border-box;
+    background-image: url('/static/images/index-k/indexk_tile04_eday.png');
+    background-attachment: fixed;
+    background-size: 23%;
+}
+
+.content-container {
+    background-color: #53b32c;
+}
+
+h1 {
+    padding: 0px;
+    margin: 0px;
+}
+
+.col-highlight {
+    background-color: #6dbd4c;
+    border-bottom-left-radius: 2vmin;
+    border-bottom-right-radius: 2vmin;
+    margin-bottom: 2%;
+}
+
+.text.column-title,
+.seasonal-column .column-title {
+    margin-top: 8%;
+    margin-bottom: 3%;
+    border-top-left-radius: 2vmin;
+    border-top-right-radius: 2vmin;
+    background-color: #6dbd4c;
+}
+
+.text.column-title {
+    padding-top: 12%;
+    padding-bottom: 5%;
+}
+
+.button-container img {
+    width: 100%;
+    display: block;
+}
+
+.button-container.avatar-container span.avatar-img-container {
+    overflow: hidden;
+    background-color: #bfffff;
+    border: solid 3px #3c7b00;
+    height: 20%;
+    border-radius: 8vmin;
+    width: 85%;
+    margin: auto;
+}
+
+a.button-container.avatar-container:focus-visible,
+a.button-container.avatar-container:hover,
+a.button-container.avatar-container:focus {
+    /* border: 1px solid transparent; */
+}
+
+.avatar-img-container img.avatar {
+    width: 168%;
+    left: -36%;
+    position: relative;
+    top: -26%;
+}
+
+.math-column {
+    padding-bottom: 5%;
+}
+
+.math-column .button-container {
+    margin-bottom: 8%;
+}
+
+.math-column .button-container:last-child {
+    margin-bottom: 0%;
+}
+
+.column-title {
+    font-size: 2.9em;
+    color: #1C3800;
+    text-align: center;
+}
+
+.column-title.smaller {
+    font-size: 1.8em;
+    margin: 0px auto;
+}
+
+.seasonal-top {
+    left: 2%;
+}
+
+.seasonal-top img {
+    width: 120%;
+    position: absolute;
+    left: 0%;
+    top: 0px;
+}

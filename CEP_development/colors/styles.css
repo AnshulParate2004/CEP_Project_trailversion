@@ -1,0 +1,347 @@
+#root {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  /* Adding custom styles for the crayon page */
+  .app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+  }
+  
+  /* Back button section */
+  .back-section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    z-index: 10;
+  }
+  
+  .back-button {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 0;
+    left: 0;
+    border: none;
+    cursor: pointer;
+    background-color: #4CAF50;
+    border-radius: 0 0 100% 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s;
+    padding-right: 15px;
+    padding-bottom: 15px;
+  }
+  
+  .back-button:hover {
+    background-color: #3e8e41;
+  }
+  
+  .back-button svg {
+    width: 24px;
+    height: 24px;
+    stroke: white;
+    stroke-width: 3;
+  }
+  
+  /* Header section */
+  .header-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #87CEFA;
+    padding: 20px;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .header-text {
+    color: #00008B;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .header-buttons {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .how-to-join-btn, .sign-in-btn {
+    padding: 10px 25px;
+    border-radius: 8px;
+    border: 2px solid #0078d7;
+    background-color: #e6f3ff;
+    color: #00008B;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .how-to-join-btn:hover, .sign-in-btn:hover {
+    background-color: #b3d9ff;
+    transform: translateY(-2px);
+  }
+  
+  /* Title section */
+  .title-section {
+    padding: 40px 0 20px;
+    text-align: center;
+  }
+  
+  .rainbow-title {
+    font-size: 72px;
+    font-weight: bold;
+    background-image: linear-gradient(
+      to right, 
+      #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Divider */
+  .divider {
+    height: 2px;
+    background-color: #ddd;
+    margin: 0 auto;
+    width: 80%;
+  }
+  
+  /* Crayons section */
+  .crayons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .crayon-row {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  
+  .crayon {
+    position: relative;
+    width: 260px;
+    height: 70px;
+    background-color: #d3d3d3;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .crayon::before {
+    content: '';
+    position: absolute;
+    left: -30px;
+    width: 30px;
+    height: 70px;
+    background-color: inherit;
+    clip-path: polygon(40% 0, 100% 0, 100% 100%, 40% 100%, 0 50%);
+  }
+  
+  .crayon span {
+    position: relative;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    z-index: 1;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  }
+  
+  .crayon::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+    z-index: 0;
+  }
+  
+  /* Modified: Removed special styling for .crayon.red that made it larger */
+  .crayon.red {
+    background-color: #ff0000;
+    /* No special sizing anymore - matches other crayons */
+  }
+  
+  .crayon[data-color="orange"] {
+    background-color: #ffa500;
+  }
+  
+  .crayon[data-color="yellow"] {
+    background-color: #ffff00;
+  }
+  
+  .crayon[data-color="green"] {
+    background-color: #008000;
+  }
+  
+  .crayon[data-color="blue"] {
+    background-color: #0000ff;
+  }
+  
+  .crayon[data-color="purple"] {
+    background-color: #800080;
+  }
+  
+  .crayon[data-color="brown"] {
+    background-color: #a52a2a;
+  }
+  
+  .crayon[data-color="white"] {
+    background-color: #ffffff;
+    position: relative;
+  }
+  
+  .crayon[data-color="white"]::after {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Arrow for white color */
+  .crayon[data-color="white"] .arrow {
+    position: absolute;
+    right: 15px;
+    z-index: 2;
+    width: 20px;
+    height: 20px;
+  }
+  
+  .crayon[data-color="white"] .arrow path {
+    fill: #333;
+  }
+  
+  .crayon[data-color="black"] {
+    background-color: #000000;
+  }
+  
+  .crayon[data-color="gray"] {
+    background-color: #808080;
+  }
+  
+  .crayon[data-color="pink"] {
+    background-color: #ffc0cb;
+  }
+  
+  .crayon.rainbow {
+    background: linear-gradient(
+      to right, 
+      #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff
+    );
+  }
+  
+  /* Hover and active states apply to all crayons equally */
+  .crayon:hover {
+    transform: scale(1.05);
+  }
+  
+  .crayon.active {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+  }
+  
+  /* Footer */
+  .footer {
+    margin-top: auto;
+    padding: 20px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .starfall-logo {
+    height: 40px;
+    opacity: 0.7;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .header-section {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .rainbow-title {
+      font-size: 48px;
+    }
+    
+    .crayon {
+      width: 220px;
+    }
+    
+    .crayon-row {
+      gap: 20px;
+    }
+    
+    .back-button {
+      width: 80px;
+      height: 80px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .back-section {
+      width: 60px;
+      height: 60px;
+    }
+    
+    .back-button {
+      width: 60px;
+      height: 60px;
+      padding-right: 10px;
+      padding-bottom: 10px;
+    }
+    
+    .back-button svg {
+      width: 18px;
+      height: 18px;
+    }
+    
+    .header-text {
+      font-size: 18px;
+    }
+    
+    .how-to-join-btn, .sign-in-btn {
+      padding: 8px 16px;
+      font-size: 16px;
+    }
+    
+    .rainbow-title {
+      font-size: 36px;
+    }
+    
+    .crayon {
+      width: 180px;
+      height: 60px;
+    }
+    
+    .crayon::before {
+      height: 60px;
+    }
+    
+    .crayon span {
+      font-size: 20px;
+    }
+  }
+  

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Starfall Motion Songs</title>
+    <meta name="description" content="Starfall Motion Songs" />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        /* Reset and global styles */
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+        
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #ffffff;
+          overflow-x: hidden;
+        }
+        
+        .app-container {
+          width: 100%;
+          min-height: 100vh;
+          display: flex;
+          flex-direction: column;
+        }
+        
+        /* Top banner styles */
+        .top-banner {
+          display: flex;
+          background-color: #87CEFA; /* Light blue */
+          padding: 10px;
+          position: relative;
+        }
+        
+        .banner-content {
+          display: flex;
+          width: 100%;
+          justify-content: center;
+          align-items: center;
+          padding: 15px;
+        }
+        
+        .banner-text {
+          color: #00008B; /* Dark blue */
+          font-size: 1.4rem;
+          font-weight: bold;
+          margin-right: 20px;
+        }
+        
+        .banner-buttons {
+          display: flex;
+          gap: 10px;
+        }
+        
+        .join-button, .signin-button {
+          padding: 8px 20px;
+          border-radius: 5px;
+          font-weight: bold;
+          cursor: pointer;
+          font-size: 1rem;
+          border: 1px solid #87CEFA;
+          background-color: #E0F7FF; /* Very light blue */
+          color: #00008B; /* Dark blue */
+          transition: all 0.3s ease;
+        }
+        
+        .join-button:hover, .signin-button:hover {
+          background-color: #D0E7FF;
+        }
+        
+        /* Header styles */
+        .page-header {
+          width: 100%;
+          text-align: center;
+          padding: 10px 0 30px 0;
+        }
+        
+        .page-title {
+          font-size: 3rem;
+          color: #FFEB3B; /* Yellow */
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+          font-family: 'Comic Sans MS', cursive, sans-serif;
+          letter-spacing: 2px;
+        }
+        
+        /* Back button styles */
+        .back-button {
+          width: 60px;
+          height: 60px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          border-radius: 0 50% 50% 0;
+          background-color: #4CAF50; /* Green */
+        }
+        
+        .back-button:hover {
+          background-color: #3e8e41;
+          transform: scale(1.05);
+        }
+        
+        /* Song grid styles */
+        .song-grid {
+          display: grid;
+          grid-template-columns: repeat(5, 1fr);
+          gap: 10px;
+          margin: 0 auto;
+          max-width: 1000px;
+        }
+        
+        /* Song card styles */
+        .song-card {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin: 10px;
+          max-width: 150px;
+          opacity: 0.5;
+          transition: all 0.3s ease;
+          cursor: pointer;
+          position: relative;
+        }
+        
+        .song-card.active {
+          opacity: 1;
+        }
+        
+        .song-image-container {
+          width: 120px;
+          height: 120px;
+          border-radius: 50%;
+          overflow: hidden;
+          border: 3px solid transparent;
+          position: relative;
+        }
+        
+        .song-image-container::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 40px;
+          height: 40px;
+          background: rgba(255, 255, 255, 0.7);
+          border-radius: 50%;
+          background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%234CAF50"><path d="M8 5v14l11-7z"/></svg>');
+          background-size: 60%;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+        
+        .song-card.active .song-image-container {
+          border: 3px solid #FFC107; /* Yellow border for active songs */
+          box-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
+        }
+        
+        .song-image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        
+        .song-title {
+          margin-top: 10px;
+          text-align: center;
+          font-size: 0.9rem;
+          color: #333;
+          max-width: 100%;
+          word-wrap: break-word;
+        }
+        
+        /* Main content area */
+        .main-content {
+          flex: 1;
+          padding: 20px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        
+        /* Footer styles */
+        .footer {
+          padding: 10px;
+          text-align: right;
+          background-color: #f0f0f0;
+        }
+        
+        .starfall-logo {
+          height: 30px;
+        }
+        
+        /* Video Modal styles */
+        .video-modal {
+          display: none;
+          position: fixed;
+          z-index: 1000;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.8);
+          overflow: auto;
+        }
+        .modal-content {
+          position: relative;
+          background-color: #fff;
+          margin: 10% auto;
+          padding: 20px;
+          width: 80%;
+          max-width: 800px;
+          border-radius: 10px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .close-button {
+          position: absolute;
+          top: 10px;
+          right: 20px;
+          color: #333;
+          font-size: 28px;
+          font-weight: bold;
+          cursor: pointer;
+        }
+        
+        .video-title {
+          margin-top: 15px;
+          text-align: center;
+          font-size: 1.5rem;
+          color: #333;
+        }
+        
+        #videoPlayer {
+          width: 100%;
+          border-radius: 5px;
+          outline: none;
+        }
+        
+        /* Responsive grid adjustments */
+        @media (max-width: 1000px) {
+          .song-grid {
+            grid-template-columns: repeat(4, 1fr);
+          }
+          
+          .modal-content {
+            width: 90%;
+            margin: 15% auto;
+          }
+        }
+        
+        @media (max-width: 768px) {
+          .song-grid {
+            grid-template-columns: repeat(3, 1fr);
+          }
+          
+          .banner-content {
+            flex-direction: column;
+            gap: 10px;
+          }
+          
+          .banner-text {
+            margin-right: 0;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+          }
+          
+          .modal-content {
+            width: 95%;
+            margin: 20% auto;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .song-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+          
+          .modal-content {
+            padding: 15px;
+          }
+        }
+        
+        @media (max-width: 320px) {
+          .song-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <div class="top-banner">
+            <div class="back-button" id="backButton">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 35C28.2843 35 35 28.2843 35 20C35 11.7157 28.2843 5 20 5C11.7157 5 5 11.7157 5 20C5 28.2843 11.7157 35 20 35Z" fill="#4CAF50" />
+                    <path d="M22 26L16 20L22 14" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+            </div>
+            <div class="banner-content">
+                <div class="banner-text">Join for more fun!</div>
+            </div>
+        </div>
+        
+        <header class="page-header">
+            <h1 class="page-title">Motion Songs</h1>
+        </header>
+        
+        <div class="main-content">
+          <div class="song-grid" id="songGrid">
+              {% for song in songs %}
+                  <div class="song-card {% if song.is_active %}active{% else %}inactive{% endif %}" data-song-id="{{ song.id }}" data-video-url="{{ song.video.url|default:'' }}">
+                      <div class="song-image-container">
+                          <img src="{{ song.image.url }}" alt="{{ song.title }}" class="song-image">
+                      </div>
+                      <div class="song-title">{{ song.title }}</div>
+                  </div>
+              {% endfor %}
+          </div>
+      </div>
+
+        <!-- Video Player Modal -->
+        <div id="videoModal" class="video-modal">
+            <div class="modal-content">
+                <span class="close-button">×</span>
+                <video id="videoPlayer" controls>
+                    Your browser does not support the video tag.
+                </video>
+                <h2 id="videoTitle" class="video-title"></h2>
+            </div>
+        </div>
+        
+    </div>
+    
+    <script src="{% static 'js/songs.js' %}"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          const backButton = document.getElementById('backButton');
+          backButton.addEventListener('click', function() {
+              window.location.href = "{% url 'index' %}"; // Redirect to index page
+          });
+      });
+  </script>
+  </body>
+</html>
